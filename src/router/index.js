@@ -28,6 +28,11 @@ export default new Router({
 				{ path: '/authorityAdmin/', name: 'authorityAdmin', component: () => import('@/components/authorityAdmin/authorityAdmin') },
 				{ path: '/add_policy/', name: 'add_policy', component: () => import('@/components/policySystem/add_policy') },
 				{ path: '/add_regulationType/', name: 'add_regulationType', component: () => import('@/components/addRegulationType/index') },
+				{ path: '/obj_riskDiscern/', name: 'obj_riskDiscern', component: () => import('@/components/riskDiscern/objRiskDiscern/index') },
+				{ path: '/tar_riskDiscern/', name: 'tar_riskDiscern', component: () => import('@/components/riskDiscern/tarRiskDiscern/index') },
+				{ path: '/mon_riskDiscern/', name: 'mon_riskDiscern', component: () => import('@/components/riskDiscern/monRiskDiscern/index') },
+				{ path: '/taradd/', name: 'taradd', component: () => import('@/components/riskDiscern/tarRiskDiscern/taradd') },
+				{ path: '/objadd/', name: 'objadd', component: () => import('@/components/riskDiscern/objRiskDiscern/objadd') },
 			]
 		}
 	]

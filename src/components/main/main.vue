@@ -9,6 +9,11 @@
                 <ul>
                     <li v-for="(i,index) in navList" :key="index" @click="cutContent(index)" :class="{ active:index == listActive }">
                         <router-link :to="i.url"><span>{{ i.title }}</span></router-link>
+                        <ul class="cont_lul" v-if="index === display && status == index">
+                            <li v-for="(item,indexm) in i.titleUl" :key="indexm"  @click="cutContentm(index,indexm)" :class="state == indexm?'active-tag':'active-t'" >
+                                <router-link :to="item.url"><span>{{ item.titleLi}}</span></router-link>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -27,7 +32,13 @@ export default {
             msg: 'Welcome to Your Vue.js App',
             navList : [
                 {title:'风险管理总视图',url:'/main/'},
-                {title:'风险识别',url:'/riskDiscern'},
+                {title:'风险识别',url:'/riskDiscern',
+                titleUl:[
+                    {titleLi:'风险管控对象管理',url:'/obj_riskDiscern'},
+                    {titleLi:'风险指标集',url:'/tar_riskDiscern'},
+                    {titleLi:'风险指标监控',url:'/mon_riskDiscern'
+                    }]
+                },
                 {title:'问题管理',url:'/issueAdmin'},
                 {title:'整改措施',url:'/rectificAdmin'},
                 {title:'处置与整改任务管理',url:'/taskAdmin'},
@@ -35,12 +46,16 @@ export default {
                 {title:'组织机构管理',url:'/unitAdmin'},
                 {title:'权限管理',url:'/authorityAdmin'}
             ],
-            listActive : 0
+            listActive : 0,
+            isNav:false,
+            display:null,
+            status:null,
+            state:null
         }
     },
     created() {
         console.log(this,888)
-        this.handleList();
+        // this.handleList();
     },
     mounted(){
         // 解决刷新后左侧导航索引对不上的问题
@@ -50,12 +65,27 @@ export default {
         }
     },
     methods:{
-        cutContent( index ){
+        cutContent(index){
             this.listActive = index;
             localStorage.setItem( 'active',index );
+            this.display = index;
+            if(this.status !== index){
+                this.status = index;
+            }else{
+                this.status = null;
+            };
         },
         signOut(){
             this.$router.push("/");
+        },
+        cutContentm(index,indexm){
+            this.display = index;
+            if(this.status !== index){
+                this.status = index;
+            }else{
+                this.status = null;
+            };
+            this.state = indexm;
         }
     }
 }
@@ -122,8 +152,21 @@ export default {
 }
 .cont_r{
     margin-left:250px;
-    padding: 30px 0 30px 30px;
+    padding: 30px 30px 30px 30px;
     margin-top: 60px;
 }
-
+.cont_l .cont_lul{
+    margin-top: 0;  
+    margin-left: 15px;
+}
+.cont_lul li.active-tag a:hover{
+    color: #fff;
+    background: rgb(0,21,40);
+}
+.cont_lul li.active-tag a{
+    color: #409EFF;
+}
+.cont_lul li.active-t a{
+    color: #f5f5f5;;
+}
 </style>
