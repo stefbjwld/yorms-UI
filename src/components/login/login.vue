@@ -2,7 +2,7 @@
   <div class="login-container">
     <div class="login-background">
       <div class="login-form">
-        <p class="login-form-title">创新平台公测版</p>
+        <p class="login-form-title">运维风险管理平台</p>
         <p class="login-form-text">1.0</p>
         <el-form
             :model="loginForm"

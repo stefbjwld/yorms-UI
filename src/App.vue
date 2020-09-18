@@ -18,7 +18,7 @@ export default {
 body,div,ul,ol,dt,dd,dl,li,h1,h2,h3,h4,h5,h6,form,input,select,textarea,p,img,a,span,strong,*{ padding:0; margin:0;}
 body{ font-size:12px; font-family:"微软雅黑"; color:#000000; background-color: #FFFFFF;}
 ul,ol,li{ list-style:none;}
-h1,h2,h3,h4,h5,h6{ font-size:12px; font-weight:normal;}
+h1,h2,h3,h4,h5,h6{ font-weight:normal;}
 img,input,select,textarea{ vertical-align:middle}
 img{ border:none;}
 a{ color:#333333; text-decoration:none;}

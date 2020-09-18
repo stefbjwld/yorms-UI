@@ -1,5 +1,7 @@
 <template>
   <div class="policySystem">
+    <h1>风控对象管理</h1>
+    <el-divider content-position="right"></el-divider>
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
       <el-form-item label="风控对象名称">
         <el-input v-model="formInline.objName" placeholder="风控对象名称"></el-input>
@@ -44,58 +46,66 @@
 </template>
 
 <script>
-import { getobjList} from "./../../../api/objRiskDiscern/api";
+  import {
+    getobjList
+  } from "./../../../api/objRiskDiscern/api";
 
-let id = 1000;
-export default {
-  name: "issueAdmin",
-  data() {
-    return {
-      formInline: {
-        objName: "",
-        objLevel: "",
-      },
-      statusOptions: [],
-      statusOptions2:[],
-      statusOptions3:[],
-      tableData: [],
-      disabled2:true ,
-      disabled3:true,
-    //   pageSize: 10,
-    //   currentPage: 0,
-    //   total: null,
-    }
-  },
-  created() {
-    this.handleList();
-  },
-  methods: {
-    editRow(row){},
-    delRow(row){},
-    viewRow(row){},
-    add() {
-      this.$router.push({ path: "/objadd", query: {} });
+  let id = 1000;
+  export default {
+    name: "issueAdmin",
+    data() {
+      return {
+        formInline: {
+          objName: "",
+          objLevel: "",
+        },
+        statusOptions: [],
+        statusOptions2: [],
+        statusOptions3: [],
+        tableData: [],
+        disabled2: true,
+        disabled3: true,
+        //   pageSize: 10,
+        //   currentPage: 0,
+        //   total: null,
+      }
     },
-    //获取列表
-    handleList() {
-      getobjList(this.formInline).then(res => {
-        this.tableData = res.data
-      });
+    created() {
+      this.handleList();
+    },
+    methods: {
+      editRow(row) {},
+      delRow(row) {},
+      viewRow(row) {},
+      add() {
+        this.$router.push({
+          path: "/objadd",
+          query: {}
+        });
+      },
+      //获取列表
+      handleList() {
+        getobjList(this.formInline).then(res => {
+          this.tableData = res.data
+        });
+      }
     }
-  }  
-};
+  };
+
 </script>
 
 <style scoped>
-.regulation-type-box{
-  display: flex;
-  align-items: center;
-}
-.regulation-children{
-  padding-left: 20px;
-}
-.resbutton{
-  margin-left: 0;
-}
+  .regulation-type-box {
+    display: flex;
+    align-items: center;
+  }
+
+  .regulation-children {
+    padding-left: 20px;
+  }
+
+  .resbutton {
+    margin-left: 0;
+  }
+
 </style>
- 

@@ -201,7 +201,7 @@ export default {
     },
     //获取风险二级分类
     handleQuery(){
-        getqueryFreq({}).then(res => {
+        getqueryFreq().then(res => {
             this.statusOptions4 = res.data;
         });
     },

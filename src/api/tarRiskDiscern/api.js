@@ -3,7 +3,7 @@ import request from '@/request'
 //获取风险指标集列表
 export const gettarList = data => {
     return request ({
-        url: `/IndexAcqFreq/list`,
+        url: `/risk/IndexAcqFreq/list`,
         method: 'get',
         data: data
     })
@@ -12,7 +12,7 @@ export const gettarList = data => {
 //添加风险
 export const addtar = data => {
     return request ({
-        url: `/IndexAcqFreq/add `,
+        url: `/risk/IndexAcqFreq/add `,
         method: 'post',
         data
     })
@@ -39,7 +39,7 @@ export const addtar = data => {
 //获取风险一级分类
 export const getLevel1 = data => {
     return request ({
-        url: `/IndexAcqFreq/level1 `,
+        url: `/risk/IndexAcqFreq/level1 `,
         method: 'get',
         data
     })
@@ -47,7 +47,7 @@ export const getLevel1 = data => {
 //获取风险二级分类
 export const getLevel2 = data => {
     return request ({
-        url: `/IndexAcqFreq/level2?level1Id=${data.level1Id} `,
+        url: `/risk/IndexAcqFreq/level2?level1Id=${data.level1Id} `,
         method: 'get',
         data
     })
@@ -55,7 +55,7 @@ export const getLevel2 = data => {
 //获取风险三级分类
 export const getLevel3 = data => {
     return request ({
-        url: `/IndexAcqFreq/level3?level2Id=${data.level2Id} `,
+        url: `/risk/IndexAcqFreq/level3?level2Id=${data.level2Id} `,
         method: 'get',
         data
     })
