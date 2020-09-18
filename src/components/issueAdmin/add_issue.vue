@@ -1,4 +1,7 @@
 <template>
+<div>
+  <h1>新增风险问题</h1>
+  <el-divider content-position="right"></el-divider>
   <el-form
     :model="ruleForm"
     :rules="rules"
@@ -35,6 +38,7 @@
       <el-button @click="resetForm('ruleForm')">重置</el-button>
     </el-form-item>
   </el-form>
+  </div>
 </template>
 <script>
 import { add,getList, getIssueById, update } from './api'

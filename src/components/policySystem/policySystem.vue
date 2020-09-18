@@ -1,5 +1,7 @@
 <template>
   <div class="policySystem">
+    <h1>风险制度法规</h1>
+    <el-divider content-position="right"></el-divider>
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
       <el-form-item label="部门名称">
         <el-input v-model="formInline.deptNo" placeholder="部门名称"></el-input>

@@ -3,7 +3,7 @@ import request from '@/request'
 //查询政策制度
 export const getListByPage = data => {
     return request ({
-        url: `/regulatPolic/queryByOptionPage?pageSize=${data.pageSize}&pageCount=${data.pageCount}`,
+        url: `/risk/regulatPolic/queryByOptionPage?pageSize=${data.pageSize}&pageCount=${data.pageCount}`,
         method: 'post',
         data: data.params
     })
@@ -12,7 +12,7 @@ export const getListByPage = data => {
 //查询政策制度
 export const getList = data => {
     return request ({
-        url: `/regulatPolic/queryByOption`,
+        url: `/risk/regulatPolic/queryByOption`,
         method: 'post',
         data
     })
@@ -21,7 +21,7 @@ export const getList = data => {
 //添加政策制度
 export const add = data => {
     return request ({
-        url: '/regulatPolic/add',
+        url: '/risk/regulatPolic/add',
         method: 'post',
         data
     })
@@ -30,7 +30,7 @@ export const add = data => {
 //更新政策制度
 export const update = data => {
     return request ({
-        url: '/regulatPolic/update ',
+        url: '/risk/regulatPolic/update ',
         method: 'post',
         data
     })
@@ -39,7 +39,7 @@ export const update = data => {
 //删除政策制度
 export const deleteRow = data => {
     return request ({
-        url: `/regulatPolic/del?ids=${data.ids}`,
+        url: `/risk/regulatPolic/del?ids=${data.ids}`,
         method: 'post',
         data
     })
@@ -48,7 +48,7 @@ export const deleteRow = data => {
 //查询所有政策制度分类
 export const queryTreeAll = params => {
     return request ({
-        url: '/regulationType/queryTreeAll',
+        url: '/risk/regulationType/queryTreeAll',
         method: 'get',
         params
     })
@@ -57,7 +57,7 @@ export const queryTreeAll = params => {
 //添加政策制度分类
 export const addRegulationType = data => {
     return request ({
-        url: '/regulationType/add',
+        url: '/risk/regulationType/add',
         method: 'post',
         data
     })

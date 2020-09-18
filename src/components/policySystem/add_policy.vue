@@ -1,9 +1,13 @@
 <template>
+<div>
+  <h1>新增制度法规</h1>
+  <el-divider content-position="right"></el-divider>
+
   <el-form
     :model="ruleForm"
     :rules="rules"
     ref="ruleForm"
-    label-width="100px"
+    label-width="200px"
     class="demo-ruleForm"
   >
     <el-form-item label="部门名称" prop="deptNo">
@@ -12,7 +16,7 @@
     <el-form-item label="制度分类" prop="regulationType">
       <el-cascader :options="options" v-model="ruleForm.regulationType" :props="{ label: 'label', value: 'id' }" clearable></el-cascader>
     </el-form-item>
-    <el-form-item label="制度名称" prop="regulationName">
+    <el-form-item label="制度名称" prop="regulationName" label-width="300">
       <el-input v-model="ruleForm.regulationName"></el-input>
     </el-form-item>
     <el-form-item label="发文号" prop="regulationNo">
@@ -32,6 +36,7 @@
       <el-button @click="resetForm('ruleForm')">重置</el-button>
     </el-form-item>
   </el-form>
+  </div>
 </template>
 <script>
 import { queryTreeAll, add, getList, update } from './api'

@@ -1,24 +1,61 @@
 <template>
-    <div class="taskAdmin">
-        <h1>{{ msg }}</h1>
+  <div class>
+    <h1>风险任务管理</h1>
+    <el-divider content-position="right"></el-divider>
+    <div class="addButton">
+      <el-button type="danger" icon="el-icon-plus" @click="add">新建任务</el-button>
     </div>
+
+    <el-table :data="tableData" height="250" border style="width: 100%">
+      <el-table-column prop="date" label="日期" width="180"></el-table-column>
+      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+      <el-table-column prop="address" label="地址"></el-table-column>
+    </el-table>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'taskAdmin',
-    data () {
-        return {
-            msg: '处置与整改任务管理'
-        }
-    },
-    methods:{
-        
-    }
-}
+  data() {
+    return {
+      tableData: [
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "2016-05-08",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "2016-05-06",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+        {
+          date: "2016-05-07",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+        },
+      ],
+    };
+  },
+};
 </script>
-
-<style scoped>
-
-
-</style>
