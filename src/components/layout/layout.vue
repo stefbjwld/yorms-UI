@@ -44,7 +44,7 @@
       </div>
 
       <div class="cont_r">
-
+        <tags-view></tags-view>
         <router-view></router-view>
       </div>
     </div>
@@ -52,11 +52,11 @@
 </template>
 
 <script>
-import tagsView  from './components/TagsView/index'
+import TagsView  from './components/TagsView/index.vue'
 export default {
   name: "mains",
   components: {
-    tagsView
+    TagsView
   },
   data() {
     return {
@@ -302,7 +302,7 @@ export default {
   /* background: #409EFF; */
 }
 .cont_r {
-  margin-left: 250px;
+  margin-left: 200px;
   padding: 10px 20px 10px 20px;
   margin-top: 60px;
 }
