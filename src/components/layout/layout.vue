@@ -45,7 +45,7 @@
 
       <div class="cont_r">
         <tags-view></tags-view>
-        <router-view></router-view>
+        <work-area></work-area>
       </div>
     </div>
   </div>
@@ -53,10 +53,12 @@
 
 <script>
 import TagsView  from './components/TagsView/index.vue'
+import workArea  from './workArea.vue'
 export default {
   name: "mains",
   components: {
-    TagsView
+    TagsView,
+    workArea
   },
   data() {
     return {
@@ -64,7 +66,7 @@ export default {
       navList: [
         {
           title: "风险首页",
-          url: "/main/dashboard",
+          url: "/dashboard",
           icon: "el-icon-s-home icon1",
         },
         {
@@ -144,21 +146,7 @@ export default {
       isNav: false,
       display: null,
       status: null,
-      state: null,
-      editableTabsValue: "2",
-      editableTabs: [
-        {
-          title: "Tab 1",
-          name: "1",
-          content: "<router-view />",
-        },
-        {
-          title: "Tab 2",
-          name: "2",
-          content: "<router-view />",
-        },
-      ],
-      tabIndex: 2,
+      state: null
     };
   },
   created() {
