@@ -61,7 +61,7 @@
     queryKpiValue
   } from "./api";
   export default {
-    name: 'authorityAdmin',
+    name: 'riskDiscern',
     data() {
       return {
         data: [],

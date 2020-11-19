@@ -30,6 +30,7 @@ import ScrollPane from './ScrollPane'
 import path from 'path'
 
 export default {
+  name:'TagsView',
   components: { ScrollPane },
   data() {
     return {
@@ -69,7 +70,7 @@ export default {
     isAffix(tag) {
       return tag.meta && tag.meta.affix
     },
-    filterAffixTags(routes, basePath = '/') {
+    filterAffixTags(routes, basePath = '/main') {
       let tags = []
       routes.forEach(route => {
         if (route.meta && route.meta.affix) {
@@ -91,7 +92,7 @@ export default {
       return tags
     },
     initTags() {
-      const affixTags = this.affixTags = this.filterAffixTags($router.routes)
+      const affixTags = this.affixTags = this.filterAffixTags(this.routes)
       for (const tag of affixTags) {
         // Must have tag name
         if (tag.name) {

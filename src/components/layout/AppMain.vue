@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'workArea',
+  name: 'AppMain',
   computed: {
     cachedViews() {
       return this.$store.state.tagsView.cachedViews
@@ -25,7 +25,7 @@ export default {
 <style lang="scss" scoped>
 .app-main {
   /* 50= navbar  50  */
-  min-height: calc(100vh - 50px);
+  //min-height: calc(100vh - 200px);
   width: 100%;
   position: relative;
   overflow: hidden;

@@ -43,6 +43,7 @@
 <script>
 import { add,getList, getIssueById, update } from './api'
 export default {
+  name: 'add_issue',
   data() {
     return {
       options:[],

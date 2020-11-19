@@ -1,7 +1,5 @@
 <template>
     <div class="userGroup">
-        <h1>用户组管理</h1>
-        <el-divider content-position="right"></el-divider>
         <div class="addButton">
             <el-button @click="addRole('add')" type="success">新增用户组</el-button>
         </div>

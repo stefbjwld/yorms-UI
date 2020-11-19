@@ -1,7 +1,5 @@
 <template>
     <div class="roleManagement">
-        <h1>角色管理</h1>
-        <el-divider content-position="right"></el-divider>
         <div class="addButton">
             <el-button @click="addRole('add')" type="success">新增角色</el-button>
         </div>

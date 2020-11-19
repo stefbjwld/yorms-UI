@@ -39,6 +39,7 @@
 <script>
 import { add,getList, getIssueById, update } from './api'
 export default {
+  name: 'add_risk',
   data() {
     return {
       options:[],

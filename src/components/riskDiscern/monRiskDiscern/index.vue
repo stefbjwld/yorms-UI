@@ -1,7 +1,5 @@
 <template>
   <div class="policySystem">
-    <h1>风险指标监测</h1>
-    <el-divider content-position="right"></el-divider>
     <el-form :inline="true" :model="formInline" class="demo-form-inline">
       <el-form-item label="风险等级">
         <el-input v-model="formInline.levelNo" type="number" placeholder="风险等级"></el-input>

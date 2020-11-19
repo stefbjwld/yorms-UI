@@ -14,13 +14,13 @@ export const routes= [
     path: '/main', // 项目主体
     name: 'main',
     component: () => import('@/components/layout/layout'), //  直接使用的路由懒加载，防止页面打包后首屏加载慢的问题
-    redirect: '/dashboard',
+    redirect:"/dashboard",
     children: [{
         path: '/dashboard/',
         name: 'dashboard',
         component: () => import('@/components/dashboard/dashboard'),
         meta: {
-          title: 'dashboard',
+          title: '风险首页',
           icon: 'dashboard',
           noCache: true,
           affix: true
@@ -119,7 +119,7 @@ export const routes= [
         name: 'policySystemlist',
         component: () => import('@/components/policySystem/policySystem'),
         meta: {
-          title: '风险识别',
+          title: '法规制度管理',
           icon: 'dashboard',
           noCache: true,
           affix: false
@@ -247,14 +247,13 @@ export const routes= [
           noCache: true,
           affix: false
         }
-      },
+      }
     ]
   }
 ]
 
 
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
   routes: routes
 })
 

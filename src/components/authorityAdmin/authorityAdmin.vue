@@ -1,7 +1,5 @@
 <template>
     <div class="authorityAdmin">
-        <h1>用户管理</h1>
-        <el-divider content-position="right"></el-divider>
         <el-form :inline="true" :model="serchData" class="demo-form-inline">
         <el-row :gutter="20">
                 <el-col :span="8">

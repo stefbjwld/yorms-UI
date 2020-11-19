@@ -1,64 +1,64 @@
 <template>
-  <div class="mains">
-    <div class="header">
-      <span class="span2">
-        <i class="el-icon-view"></i>
-      </span>
-      <h1>运维风险管理平台</h1>
-      <span @click="signOut" class="span1">
-        <i class="el-icon-s-check"></i>&nbsp;admin&nbsp;&nbsp;&nbsp;退出
-      </span>
+  <div class="content_wrap">
+    <div class="cont_l">
+      <ul>
+        <li
+          v-for="(i, index) in navList"
+          :key="index"
+          @click="cutContent(index)"
+          :class="{ active: index == listActive }"
+        >
+          <router-link :to="i.url">
+            <span>
+              <i :class="i.icon"></i>
+              {{ i.title }}
+            </span>
+          </router-link>
+          <ul class="cont_lul" v-if="index === display && status == index">
+            <li
+              v-for="(item, indexm) in i.titleUl"
+              :key="indexm"
+              @click="cutContentm(index, indexm)"
+              :class="state == indexm ? 'active-tag' : 'active-t'"
+            >
+              <router-link :to="item.url">
+                <span>
+                  <i :class="item.icon"></i>
+                  {{ item.titleLi }}
+                </span>
+              </router-link>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
-    <div class="content_wrap">
-      <div class="cont_l">
-        <ul>
-          <li
-            v-for="(i,index) in navList"
-            :key="index"
-            @click="cutContent(index)"
-            :class="{ active:index == listActive }"
-          >
-            <router-link :to="i.url">
-              <span>
-                <i :class="i.icon"></i>
-                {{ i.title }}
-              </span>
-            </router-link>
-            <ul class="cont_lul" v-if="index === display && status == index">
-              <li
-                v-for="(item,indexm) in i.titleUl"
-                :key="indexm"
-                @click="cutContentm(index,indexm)"
-                :class="state == indexm?'active-tag':'active-t'"
-              >
-                <router-link :to="item.url">
-                  <span>
-                    <i :class="item.icon"></i>
-                    {{ item.titleLi}}
-                  </span>
-                </router-link>
-              </li>
-            </ul>
-          </li>
-        </ul>
+    <div class="cont_r">
+      <div class="header">
+        <h1>运维风险管理平台</h1>
+        <span @click="signOut" class="span1">
+          <svg-icon icon-class="people" />
+          <i></i>&nbsp;admin&nbsp;&nbsp;&nbsp;退出
+        </span>
       </div>
-
-      <div class="cont_r">
+      <div class="tagview">
         <tags-view></tags-view>
-        <work-area></work-area>
+      </div>
+      <div class="workarea">
+        <app-main></app-main>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import TagsView  from './components/TagsView/index.vue'
-import workArea  from './workArea.vue'
+import TagsView from "./components/TagsView/index.vue";
+import AppMain from "./AppMain.vue";
+
 export default {
-  name: "mains",
+  name: "main",
   components: {
     TagsView,
-    workArea
+    AppMain,
   },
   data() {
     return {
@@ -146,7 +146,7 @@ export default {
       isNav: false,
       display: null,
       status: null,
-      state: null
+      state: null,
     };
   },
   created() {
@@ -216,15 +216,69 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  width: 100%;
-  height: 60px;
-  background: #304156;
-  box-shadow: 0px 5px 2px #304156;
-  position: relative;
-  z-index: 99;
+.cont_l {
+  width: 200px;
+  z-index: 10;
+  background: rgb(60, 60, 60);
   position: fixed;
-  color: rgb(255, 255, 255);
+  bottom: 0px;
+  top: 0px;
+  box-shadow: 2px 2px 5px #888888;
+}
+.cont_l ul {
+  margin-top: 0px;
+  overflow: hidden;
+}
+.cont_l li {
+  width: 100%;
+}
+.cont_l li a {
+  line-height: 50px;
+  font-size: 14px;
+  display: block;
+  color: #f5f5f5;
+  text-indent: 30px;
+  background: rgb(60, 60, 60);
+}
+.cont_l li a:hover {
+  color: #fff;
+  background: rgb(90, 90, 90);
+}
+.cont_l li.active a {
+  color: #409eff;
+  /* background: #409EFF; */
+}
+.cont_l .cont_lul {
+  margin-top: 0;
+  margin-left: 0px;
+}
+
+.cont_lul li span {
+  padding-left: 15px;
+}
+.cont_lul li.active-tag a:hover {
+  color: #fff;
+  background: rgb(90, 90, 90);
+}
+.cont_lul li.active-tag a {
+  color: #409eff;
+}
+.cont_lul li.active-t a {
+  color: #f5f5f5;
+}
+
+.cont_r {
+  margin-left: 200px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.header {
+  height: 60px;
+  background: #ffffff;
+  box-shadow: 0px 2px 2px #f0efef;
+  position: relative;
+  color: rgb(94, 93, 93);
 }
 .header h1 {
   font-size: 20px;
@@ -252,69 +306,14 @@ export default {
   padding-right: 10px;
 }
 
-.content_wrap {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.cont_l {
-  width: 200px;
-  z-index: 10;
-  background: rgb(60, 60, 60);
-  position: fixed;
-  bottom: 0px;
-  top: 0px;
-  box-shadow: 2px 2px 5px #888888;
-}
-.cont_l ul {
-  margin-top: 60px;
-  overflow: hidden;
-}
-.cont_l li {
-  width: 100%;
-}
-.cont_l li a {
-  line-height: 50px;
-  font-size: 14px;
-  display: block;
-  color: #f5f5f5;
-  text-indent: 30px;
-  background: rgb(60, 60, 60);
-}
-.cont_l li a:hover {
-  color: #fff;
-  background: rgb(90, 90, 90);
-}
-.cont_l li.active a {
-  color: #409eff;
-  /* background: #409EFF; */
-}
-.cont_r {
-  margin-left: 200px;
-  padding: 10px 20px 10px 20px;
-  margin-top: 60px;
-}
-.cont_l .cont_lul {
-  margin-top: 0;
-  margin-left: 0px;
+.tagview {
+  margin-top: 0px;
 }
 
-.cont_lul li span {
-  padding-left: 15px;
-}
-.cont_lul li.active-tag a:hover {
-  color: #fff;
-  background: rgb(90, 90, 90);
-}
-.cont_lul li.active-tag a {
-  color: #409eff;
-}
-.cont_lul li.active-t a {
-  color: #f5f5f5;
-}
-.contentbox{
-    border: 0.5px solid rgb(200, 200, 200);
-    padding: 20px;
-    margin-top:-20px;
+.workarea {
+  padding: 10px 20px 10px 20px;
+  height: inherit;
+  overflow: auto;
+  background-color: rgb(240, 242, 245);
 }
 </style>
