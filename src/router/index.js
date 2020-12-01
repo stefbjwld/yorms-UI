@@ -3,8 +3,9 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
+import Layout from '@/components/layout/layout.vue'
 
-export const routes= [
+export const constantRoutes= [
   {
     path: '/',
     name: 'login',
@@ -13,7 +14,7 @@ export const routes= [
   {
     path: '/main', // 项目主体
     name: 'main',
-    component: () => import('@/components/layout/layout'), //  直接使用的路由懒加载，防止页面打包后首屏加载慢的问题
+    component: Layout, //  直接使用的路由懒加载，防止页面打包后首屏加载慢的问题
     redirect:"/dashboard",
     children: [{
         path: '/dashboard/',
@@ -254,9 +255,14 @@ export const routes= [
 
 
 const createRouter = () => new Router({
-  routes: routes
+  routes: constantRoutes
 })
 
 const router = createRouter()
+
+export function resetRouter() {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher // reset router
+}
 
 export default router

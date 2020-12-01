@@ -44,6 +44,9 @@ export default {
   computed: {
     visitedViews() {
       return this.$store.state.tagsView.visitedViews
+    }    ,
+    routes() {
+      return this.$store.state.permission.routes
     }
   },
   watch: {
@@ -71,6 +74,7 @@ export default {
       return tag.meta && tag.meta.affix
     },
     filterAffixTags(routes, basePath = '/main') {
+
       let tags = []
       routes.forEach(route => {
         if (route.meta && route.meta.affix) {

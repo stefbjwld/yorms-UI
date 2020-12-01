@@ -52,7 +52,7 @@
 
 <script>
 import TagsView from "./components/TagsView/index.vue";
-import AppMain from "./AppMain.vue";
+import AppMain from "./components/AppMain.vue";
 
 export default {
   name: "main",
@@ -77,17 +77,17 @@ export default {
             {
               titleLi: "风险管控对象管理",
               url: "/obj_riskDiscern",
-              icon: "el-icon-arrow-right icon1",
+              icon: "icon2",
             },
             {
               titleLi: "风险指标集",
               url: "/tar_riskDiscern",
-              icon: "el-icon-arrow-right icon1",
+              icon: "icon2",
             },
             {
               titleLi: "风险指标监测",
               url: "/mon_riskDiscern",
-              icon: "el-icon-arrow-right icon1",
+              icon: "icon2",
             },
           ],
         },
@@ -104,7 +104,7 @@ export default {
             {
               titleLi: "整改措施",
               url: "/rectificAdmin",
-              icon: "el-icon-arrow-right icon1",
+              icon: "icon2",
             },
           ],
         },
@@ -116,22 +116,22 @@ export default {
             {
               titleLi: "组织机构管理",
               url: "/unitAdmin",
-              icon: "el-icon-arrow-right icon1",
+              icon: "icon2",
             },
             {
               titleLi: "用户管理",
               url: "/authorityAdmin",
-              icon: "el-icon-arrow-right icon1",
+              icon: "icon2",
             },
             {
               titleLi: "用户组管理",
               url: "/userGroup",
-              icon: "el-icon-arrow-right icon1",
+              icon: "icon2",
             },
             {
               titleLi: "角色管理",
               url: "/roleManagement",
-              icon: "el-icon-arrow-right icon1",
+              icon: "icon2",
             },
           ],
         },
@@ -304,6 +304,9 @@ export default {
 .icon1 {
   margin-left: -30px;
   padding-right: 10px;
+}
+.icon2{
+  margin-left: 20px;
 }
 
 .tagview {

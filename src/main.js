@@ -8,6 +8,7 @@ import echarts from 'echarts'
 import store from './store'
 import router from './router'
 import './icons' // icon
+
 Vue.prototype.$echarts = echarts
 
 Vue.use(ElementUI)
